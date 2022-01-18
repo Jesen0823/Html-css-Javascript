@@ -1,0 +1,174 @@
+
+/*
+https://www.youtube.com/channel/UC8dLFHyuZxjrW3wDO7sX1Mw/videos
+https://www.youtube.com/channel/UCf5UZtSwRN2BMQD78Pr2cJA/videos
+https://www.youtube.com/channel/UCnVk8bNM24_Ycpvzyf2FwlQ/videos
+https://www.youtube.com/c/Hory4KFashion/videos
+http://ppkk7788.com/index.php/show?catid=1
+
+Hot and sexy dance（4K）hot dance Ultra-thin high cross jumpsuit叮叮33期2013A
+*/
+
+/* 直接指定属性： */
+/*.subtitle{
+	background-color: orangered;
+}*/
+
+/*h2[attr=value] {
+	color: burlywood;
+}*/
+
+h2:hover {
+	color: red;
+}
+
+h2[class=subtitle] {
+	color: blue;
+}
+
+
+#servicesId {
+	color: green;
+}
+
+li:only-child{
+	color: purple;
+}
+
+td:only-child{
+	color: purple;
+}
+
+
+h2 + a {
+	color: greenyellow;
+}
+
+textarea ~ button {
+	color: purple;
+}
+
+ul > li {
+	background-color: gray;
+	color: lemonchiffon;
+}
+
+ul li {
+	background-color: orange;
+}
+
+
+/*img[src^="../img/"] {
+	border: 10px solid blue;
+}
+img[src$="../img/"] {
+	border: 10px solid blue;
+}*/
+img[src*="../img/"] {
+	border: 10px solid rgb(255, 255, 255);
+}
+
+
+/*h2[class~=article-subtitle]{
+	background-color: limegreen;
+}*/
+
+h2[class|=article-subtitle]{
+	background-color: limegreen;
+}
+
+
+/******************************************************************************/
+
+body{
+	background: rgb(204, 229, 255);
+	background: linear-gradient(45deg, rgba(23,149,224,0.6),rgba(137,196,232,0.6),rgba(8,149,237,0.4), rgb(252,252,252));
+	/*background: url("http://pic1.win4000.com/wallpaper/6/5477d970f202f.jpg");*/
+	/*text-transform: uppercase;*/
+	text-transform: capitalize;
+	text-align: justify;
+	font-size: 1.15em;
+	font-family: cursive;
+}
+
+#title{
+	color: steelblue;
+	font-weight: 800;
+	font-family: serif;
+
+}
+
+.subtitle{
+	color: rgb(219, 168, 50);
+	font-family: "Sarabun" sans-serif;
+}
+
+#service-image {
+	height: 400px;
+	width: 70%;
+	background: url("../img/img-2.jpg");
+	/*background: linear-gradient(to right,green,steelblue,gray);*/
+	/*background: linear-gradient(to bottom right,green,steelblue,gray);*/
+	/*background: linear-gradient(-45deg,green,steelblue,gray);*/
+	/*background: radial-gradient(green,steelblue,gray);*/
+	/*background: radial-gradient(green 30%,steelblue 50%,gray 60%);*/
+	background: radial-gradient(circle,green 30%,steelblue 50%,gray 60%);
+
+	 */
+	background-repeat: no-repeat;
+	/*background-size: 500px,200px;*/
+	background-size: contain;
+	background-color: gray;
+	border: 10px solid rgb(28, 28, 79);
+	float: right;
+
+}
+
+.link{
+	/*text-decoration: overline;*/
+	text-decoration: underline;
+}
+
+
+.italics{
+	font-style: italic;
+}
+
+#tralimage_1 {
+	/*height: 300px;*/
+	width: 40%;
+	border: 6px solid rgb(28, 28, 79);
+	/*margin-top: 40px;
+    margin-left: 40px*/;
+    margin: 12px 40px 20px 45px;
+    /*margin: 80px 40px;*/
+    float: right;
+}
+
+.site-table{
+	/*display: inline;*/
+}
+
+
+.container{
+	background-color: rgb(255, 255, 255);
+	margin: 10px;
+	display: flex;
+	flex-direction: column;
+	/*flex-direction: column-reverse;*/
+	/*flex-direction: row-reverse;*/
+	width: fit-content;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.container-item{
+	background: rgb(36, 130, 39);
+	color: white;
+	font-size: 25px;
+	text-align: center;
+	width: 70px;
+	line-height: 50px;
+	margin: 10px;
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>事件类型</title>
+
+	<style type="text/css">
+		img{
+			width: 69px;
+			height: 72px;
+			position: fixed;
+			left: 0;
+			top: 0;
+		}
+
+		.outer{
+			width: 180px;
+			height: 180px;
+			background-color: royalblue;
+			padding: 20px;
+		}
+
+		.center{
+			width: 120px;
+			height: 120px;
+			background-color: green;
+			padding: 30px;
+		}
+
+		.inner{
+			width: 80px;
+			height: 80px;
+			background-color: pink;
+			padding: 20px;
+		}
+
+
+		ul > li {
+			width: 80px;
+			height: 40px;
+			margin: 10px;
+			padding: 10px;
+			background-color: pink;
+		}
+
+		ul {
+			width: 120px;
+			height: 260px;
+			background-color: blueviolet;
+		}
+	</style>
+</head>
+
+
+<body>
+
+	<img src="./img/snow.png" alt="">
+
+
+	<div class="outer">
+		outer
+		<div class="center">
+			center
+			<div class="inner">inner</div>
+		</div>
+	</div>
+
+	<!-- 事件委托 -->
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+
+	<script type="text/javascript">
+
+		var imgBox = document.querySelector('img')
+
+		/* 案例1. 给document绑定一个鼠标移动事件 */
+		document.onmousemove = function(e){
+			console.log('移动事件坐标：')
+			// 拿到相对于窗口的事件坐标
+			var x = e.clientX
+			var y = e.clientY
+			console.log(x,y)
+
+			// 将光标的x,y赋值给img的left和top
+			imgBox.style.left = x + 5 + 'px'
+			imgBox.style.top = y + 5 + 'px'
+		}
+
+		/* 案例2. 测试事件传递顺序 */
+		var outer = document.querySelector('.outer')
+		var center = document.querySelector('.center')
+		var inner = document.querySelector('.inner')
+
+		// 一旦点击inner,三个事件都会触发
+		// 结论： 事件由外部window -> document -> html -> outer -> center -> inner
+		// 事件回去： inner-> center -> outer -> html -> document -> window
+		outer.onclick = function(){console.log('点击了outer')}
+		center.onclick = function(){console.log('点击了center')}
+		inner.onclick = function(e){
+			// 阻止事件流向center和 outer
+			e.stopPropagation()
+			console.log('点击了inner')
+		}
+
+
+
+		/* 案例3. 事件委托 */
+		var ul = document.querySelector('ul')
+		// 点击任一li,则lu的事件会被触发
+		ul.onclick = function(e){
+			console.log('event target: '+ e.target)
+			if (e.target.tagName === 'LI') {
+				console.log('ui被触发')
+			}else{
+				console.log('ul被触发')
+			}
+			
+		}
+	</script>
+</body>
+</html>

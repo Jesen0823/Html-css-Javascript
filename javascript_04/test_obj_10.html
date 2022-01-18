@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>面向对象 构造函数使用</title>
+</head>
+<body>
+		<script type="text/javascript">
+			/**
+			 * 构造函数和普通函数没有区别，但是在使用的时候需要与new关键字一起，类似java类的使用
+			 * 规范：构造函数定义时，首字母应大写
+			 * 构造函数中的this代表调用方 
+			 * 构造函数内部不要写return,因为"return 基本数据类型" 无效,还会破坏构造函数的功能
+			 * 
+			 * 调用构造函数时，如果不用传入参数则可省略圆括号
+			 * 
+			 * 构造函数的注意点：
+			 * 当定义构造函数，且构造函数中定义了函数，则调用时每new一次，就创建一个新的函数对象，会无意义地重建对象。
+			 * 
+			 */
+
+			function Person(){
+			 	this.name="Zhang"
+			 }
+
+			 var obj = new Person()
+			 console.log(obj)
+
+			 var obj2 = new Person
+			 console.log(obj2)
+
+			 /**
+			  * 原型：prototype
+			  * 每一个函数天生自带一个属性，叫做prototype，是一个对象
+			  * 
+			  */
+			console.log('prototype: ')
+			console.log(Person.prototype)
+			Person.prototype.doSomething = function(){ console.log('我是Person原型上的方法')}		
+			
+			/**
+			 * 每一个对象，当它的成员被访问时，如果自己没有这个成员或属性，会自动去所属构造函数的 prototype 去查找
+			 * Person中没有定义该方法，调用时，调的是prototype上的方法：
+			 */
+			 var obj3 = new Person
+			 obj3.doSomething()
+
+
+		</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>测试Js语法</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		console.log('fuck','-----------==')
+
+
+		// 排序测试
+		var arg = [4,9,1,11,5,2,7,23,3,32,8,10,6]
+		console.log('fuck','original array: '+arg)
+		//dubleSort(arg)
+		selectedSort(arg)
+		console.log('fuck','sorted competed: '+arg)
+
+
+
+				// 冒泡排序
+		function dubleSort(arg) {
+		
+			if (arg.length < 1) {
+				return;
+			}
+			for (var j = 1; j <= arg.length -1; j++) {
+				for (var i = 1; i <= arg.length - 0 - j; i++) {
+					if (arg[i-1] > arg[i]) {
+						var temp = arg[i-1]
+						arg[i-1] = arg[i]
+						arg[i] = temp
+					}
+				}
+			}
+
+			console.log('fuck','result arg: '+arg)
+		}
+
+
+		// 选择排序
+		function selectedSort(arg){
+			if (arg.length < 1) { 
+				return;
+			}
+
+			// 总共操作的轮数
+			for (var i = 0; i<arg.length-1; i++) {
+				// 假设最小数的下标
+				var minIndex = i
+
+				// 每一轮操作，比较是否有比最小数小的数，更新最小数下标
+				for(var j=i+1;j<arg.length; j++){
+					if (arg[j] < arg[minIndex]) {
+						minIndex = j
+					}
+				}
+
+				// 交换数据顺序
+				var temp = arg[j]
+				arg[j] = arg[minIndex]
+				arg[minIndex] = temp
+			}
+		}
+
+
+	</script>
+</body>
+</html>

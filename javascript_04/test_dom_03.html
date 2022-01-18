@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>DOM的使用</title>
+</head>
+<body>
+	<div>一号</div>
+	<div class="box">二号</div>
+	<div class="box content" style="width: 200px;height: 100px;background-color: pink;">二号内容</div>
+	<div class="box" id="container">三号</div>
+	<p>一个段落</p>
+	<p id="testText">两个段落</p>
+	<input type="password" custom='自定义属性' name="">
+	<button>操作元素内容</button>
+	<button>操作元素超文本</button>
+	<button>操作元素属性</button>
+	<button>操作元素的自定义属性</button>
+	<button>修改元素行内样式</button>
+	<script type="text/javascript">
+		var ele = document.getElementById('“container')
+		console.log('get element by id: </br>')
+		console.log(ele)
+
+		var ele2 = document.getElementsByClassName("box")
+		console.log(ele2)
+		var ele3 = document.getElementsByClassName("content")
+		console.log(ele3)
+
+
+		var ele4 = document.getElementsByTagName('p')
+		console.log('根据标签名获取到的元素：')
+		console.log(ele4)
+
+		var ele5 = document.querySelector('div')
+		console.log('根据选择器获取到的元素，只选第一个：')
+		console.log(ele5)
+		var ele6 = document.querySelector('.box')
+		console.log('根据选择器获取到的元素，只选第一个：')
+		console.log(ele6)
+
+		var ele7 = document.querySelectorAll('.box')
+		console.log('根据选择器获取到的元素，返回所有符合条件：')
+		console.log(ele7)
+
+		/* 操作元素内容 */
+		var eleP = document.getElementById('testText')
+		var btn = document.querySelectorAll('button')[0]
+		console.log('元素初始文本内容：')
+		console.log(eleP.innerText)
+		btn.onclick = function(){
+			// 修改文本内容
+			eleP.innerText = '修改为此内容'
+		}
+		var btn2 = document.querySelectorAll('button')[1]
+		console.log('元素初始超文本内容：')
+		console.log(eleP.innerHTML)
+		btn2.onclick = function(){
+			// 修改超文本内容
+			eleP.innerHTML = '<span>修改了超文本</span>'
+		}
+
+		var input = document.querySelector('input')
+		var btn3 = document.querySelectorAll('button')[2]
+		console.log('input元素初始type：')
+		console.log(input.type)
+		btn3.onclick = function(){
+			// 修改超文本内容
+			input.type = 'checkbox'
+			eleP.color = '#FF0000'
+		}
+
+		var btn4 = document.querySelectorAll('button')[3]
+		var res = input.getAttribute('custom')
+		console.log('input元素初始自定义属性：')
+		console.log(input.res)
+		btn4.onclick = function(){
+			// 修改自定义属性
+			input.setAttribute('custom','自定义属性被修改了')
+		}
+
+		var btn5 = document.querySelectorAll('button')[4]
+		var div3 = document.querySelectorAll('div')[2]
+		btn5.onclick = function(){
+			// 修改元素样式
+			div3.style.width = '120px'
+			div3.style.height= '500px'
+			div3.style.backgroundColor = 'skyblue'
+			
+		}
+	</script>
+</body>
+</html>

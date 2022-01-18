@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>使用数据渲染页面</title>
+</head>
+<body>
+
+	<table border="1" cellspacing="0">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>姓名</th>
+				<th>岗位</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- js渲染表格内容 -->
+		</tbody>
+	</table>
+
+
+	<script type="text/javascript">
+		// 数据
+		var data = [
+		  {id:1, name:'王小荣', work:'后勤'},
+		  {id:2, name:'宋发', work:'冷菜大厨'},
+		  {id:3, name:'李大毛', work:'川菜大厨'},
+		  {id:4, name:'孙甜甜', work:'服务员'},
+		  {id:5, name:'张葱', work:'服务员'},
+		]
+
+		var tbody = document.querySelector('tbody')
+
+		data.forEach(function(item){
+			console.log(item)
+			// 每遍历一个对象对应一个tr
+			var tr = document.createElement('tr')
+
+			// 遍历item的属性
+			for(var key in item){
+				// 生成td标签
+				var td = document.createElement('td')
+				td.innerHTML = item[key]
+
+				// 把td插入tr标签内
+				tr.appendChild(td)
+			}
+
+			tbody.appendChild(tr)
+		})
+	</script>
+</body>
+</html>
