@@ -1,0 +1,61 @@
+<!DOCTYPE <html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>ES6新特性 解构赋值</title>
+	</head>
+	
+	<body>
+		
+		<script type="text/javascript">
+
+			/** 1. 结构数组：*/
+
+			// 1.1 普通用法：
+			let arr = ['G','P','K']
+			let a = arr[0]
+			let b = arr[1]
+			let c = arr[2]
+			
+			// 1.2 解构赋值
+			let [e1, e2, e3] = ['G','P','K']
+			console.log(e1)
+			console.log(e2)
+
+			/** 2. 结构对象：*/
+
+			// 2.1 普通用法：
+			let obj = {
+			    name:'apple',
+			    col:'Red'
+			}
+			let name = obj.name
+			let color = obj.col
+			
+			// 2.2 解构赋值：
+			let obj2 = {
+			    name2:'apple2',
+			    color2:'Red2'
+			}
+			
+			// 等价于 let name = obj.name
+			var {name2,color2} = obj2
+			console.log(name2)
+
+
+			var arr1 = [1,2,3]
+			var arr2 = [4,5]
+			var arr3 = [6,7,8,9]
+			var all = [...arr1, ...arr2, ...arr3]
+			console.log(all)
+
+			var arrP = [1,13,5,7]
+			function maxValue(a){ return Math.max(...a)}
+			let ret = maxValue(arrP)
+			console.log(ret)
+
+		</script>
+		
+	</body>
+</html>

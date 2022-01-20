@@ -1,0 +1,73 @@
+<!DOCTYPE  html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="apple-touch-icon" sizes="180x180" href="./img/src/apple-touch-icon.png">
+	<link rel="icon" type="image/png" href="./img/src/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="./img/src/favicon-16x16.png" sizes="16x16">
+	<link rel="mask-icon" href="./img/src/safari-pinned-tab.svg" color="#ff0000">
+	<link rel="shortcut icon" href="./img/src/favicon.ico">
+	<title>测试</title>
+	<link rel="stylesheet" href="">
+</head>
+
+<body>
+	
+
+	<script type="text/javascript">
+		
+		/**
+		 * 原型
+		 */
+		 function Person(name, height){
+		 	this.name = name
+		 	this.height = height
+
+		 	// 在构造函数内向实例直接添加方法，不可取因为每new一次，创建一个函数数据类型testFun，会浪费存储空间
+		 	// 所以，函数应该用“原型”
+		 	this.testFun = function(){
+		 		console.log('参加跳高')
+		 	}
+		 }
+
+		 // 创建实例
+		 var p1 = new Person('wang', 173)
+		 var p2 = new Person('zhang', 161)
+
+
+
+		 /*p1.testFun()
+		 p2.testFun()
+		 console.log(p1.testFun == p2.testFun)*/
+
+
+		 // 原型
+		 Person.prototype.testFun2 = function() {
+		 	console.log('参加体操')
+		 };
+		 Person.prototype.age = 18
+
+		 p1.testFun2()
+		 p2.testFun2()
+		 console.log(p1.testFun2 == p2.testFun2) // true
+
+		 console.log(p1.__proto__ === Person.prototype) // true
+		 console.log('p1 age:'+p1.age)
+		 p1.__proto__ = 20
+		 console.log('p1 age update:'+p1.age)
+
+		 /**
+		  * 1. p1.__proto__指向 Person.prototype.
+		  * 2. Person.prototype也是个对象，它的.__proto__指向 Object.prototype.
+		  * 3. Person的__proto__ 指向 Function.prototype, 因为函数也是对象，是内置构造函数Function的对象.
+		  * 4. Object.prototype也是个对象，它的.__proto__指向什么？ 指向null,因为js中Object.prototype是顶级对象，不再有__proto__了.
+		  * 5. Object的__proto__ 是函数数据类型，也指向 Function.prototype.
+		  * 6. Function.prototype也是对象数据类型，所有它的.__proto__指向Object.prototype.
+		  * 7. Function的__proto__是函数数据类型，所以指向 Function.prototype.
+		  * */
+
+	</script>
+</body>
+</html>

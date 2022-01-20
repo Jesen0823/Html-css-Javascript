@@ -3,7 +3,13 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>ä½¿ç”¨é¢å‘å¯¹è±¡ ç®€å•å®žçŽ°é€‰é¡¹å¡</title>
+	<link rel="apple-touch-icon" sizes="180x180" href="./img/src/apple-touch-icon.png">
+	<link rel="icon" type="image/png" href="./img/src/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="./img/src/favicon-16x16.png" sizes="16x16">
+	<link rel="mask-icon" href="./img/src/safari-pinned-tab.svg" color="#ff0000">
+	<link rel="shortcut icon" href="./img/src/favicon.ico">
+
+	<title>Ê¹ÓÃÃæÏò¶ÔÏó ¼òµ¥ÊµÏÖcÑ¡Ïî¿¨</title>
 
 	<style type="text/css">
 		* {
@@ -89,33 +95,34 @@
 
 	<script type="text/javascript">
 		
-		// æž„é€ å‡½æ•°
+		// ¹¹Ôìº¯Êý
 		function Tabs(ele){
 			this.ele = document.querySelector(ele)
-			// æ‰¾åˆ°å¯ä»¥ç‚¹å‡»çš„ç›’å­
+			// ÕÒµ½¿ÉÒÔµã»÷µÄºÐ×Ó
 			this.btns = this.ele.querySelectorAll('ul > li')
 			this.tabs = this.ele.querySelectorAll('ol > li')
 		}
 
-		// åœ¨åŽŸåž‹ä¸Šæ·»åŠ æ–¹æ³•
+		// ÔÚÔ­ÐÍÉÏÌí¼Ó·½·¨
 		Tabs.prototype.switchTab = function() {
-			// æå‰ä¿å­˜è°ƒç”¨å¯¹è±¡,æž„é€ å‡½æ•°çš„è°ƒç”¨å¯¹è±¡
+			// ÌáÇ°±£´æµ÷ÓÃ¶ÔÏó,¹¹Ôìº¯ÊýµÄµ÷ÓÃ¶ÔÏó
 			var _this = this
 
-			// ç»™æ‰€æœ‰btnsæ·»åŠ ç‚¹å‡»äº‹ä»¶
+			// ¸øËùÓÐbtnsÌí¼Óµã»÷ÊÂ¼þ
 			for (var i = 0; i < this.btns.length; i++) {
 				
-				// ä¿å­˜ç´¢å¼•
+				// ±£´æË÷Òýµ½ÊôÐÔ
 				this.btns[i].setAttribute('index',i)
-
+				// ÉèÖÃµã»÷ÊÂ¼þ¼àÌý
 				this.btns[i].addEventListener('click', function(){
+					// ÏÈÇå³ýËùÓÐactive
 					for(var j = 0; j < _this.btns.length; j++){
 						_this.btns[j].className = ''
 						_this.tabs[j].className = ''
 					}
 
-					// å½“å‰ç‚¹å‡»çš„li æ·»åŠ active
-					// æ­¤å¤„æ˜¯ç‚¹å‡»äº‹ä»¶ä½œç”¨åŸŸï¼Œthisä»£è¡¨è¢«ç‚¹å‡»çš„å¯¹è±¡btn
+					// Ö»¸øµ±Ç°µã»÷µÄliÑ¡ÏîÌí¼Óactive
+					// ´Ë´¦ÊÇµã»÷ÊÂ¼þ×÷ÓÃÓò£¬this´ú±í±»µã»÷µÄ¶ÔÏóbtn
 					this.className = 'active'
 					var curIndex = this.getAttribute('index') - 0
 					_this.tabs[curIndex].className = 'active'
@@ -124,7 +131,7 @@
 			}
 		};
 
-		// ä½¿ç”¨æž„é€ å‡½æ•°
+		// Ê¹ÓÃ¹¹Ôìº¯Êý
 		var tab = new Tabs('#tabBox')
 		console.log(tab)
 		tab.switchTab()

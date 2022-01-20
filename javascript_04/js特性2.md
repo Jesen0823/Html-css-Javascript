@@ -166,3 +166,60 @@
 </html>
 ```
 
+* **关于原型和原型链**
+
+  每一个对象都有一个____proto____对象, 这种对象构成的链叫原型链
+  
+  调用对象或方法的属性或方法，会先查找自己的，如果没有找到再去原型链向上一层层查找，找到了就调用。
+  
+  ```js
+  		/**
+  		 * 原型
+  		 */
+  		 function Person(name, height){
+  		 	this.name = name
+  		 	this.height = height
+  
+  		 	// 在构造函数内向实例直接添加方法，不可取因为每new一次，创建一个函数数据类型testFun，会浪费存储空间
+  		 	// 所以，函数应该用“原型”
+  		 	this.testFun = function(){
+  		 		console.log('参加跳高')
+  		 	}
+  		 }
+  
+  		 // 创建实例
+  		 var p1 = new Person('wang', 173)
+  		 var p2 = new Person('zhang', 161)
+  
+  
+  
+  		 /*p1.testFun()
+  		 p2.testFun()
+  		 console.log(p1.testFun == p2.testFun)*/
+  
+  
+  		 // 原型
+  		 Person.prototype.testFun2 = function() {
+  		 	console.log('参加体操')
+  		 };
+  		 Person.prototype.age = 18
+  
+  		 p1.testFun2()
+  		 p2.testFun2()
+  		 console.log(p1.testFun2 == p2.testFun2) // true
+  
+  		 console.log(p1.__proto__ === Person.prototype) // true
+  		 console.log('p1 age:'+p1.age)
+  		 p1.__proto__ = 20
+  		 console.log('p1 age update:'+p1.age)
+  ```
+  
+  * 代码说明：
+      * p1.______proto______指向 Person.prototype.
+      * Person.prototype也是个对象，它的.______proto__指向 Object.prototype.
+      * Person的____proto____ 指向 Function.prototype, 因为函数也是对象，是内置构造函数Function的对象.
+      * Object.prototype也是个对象，它的.____proto____指向什么？ 指向null,因为js中Object.prototype是顶级对象，不再有____proto____了.
+      * Object的____proto____ 是函数数据类型，也指向 Function.prototype.
+      * Function.prototype也是对象数据类型，所有它的.____proto____指向Object.prototype.
+      * Function的____proto____是函数数据类型，所以指向 Function.prototype.
+
