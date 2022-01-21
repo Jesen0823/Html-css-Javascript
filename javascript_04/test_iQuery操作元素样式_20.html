@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>iQuery 操作元素样式</title>
+
+		<style type="text/css">
+			div {
+				height: 200px;
+				background-color: skyblue;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div style="width: 100px;" class="box">操作样式style</div>
+		
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+		<script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.11.3/jquery.min.js"></script>
+
+
+		<script type="text/javascript">
+			
+			// 操作元素样式 css()
+			// 1. 获取元素的行内/非行内样式
+			console.log($('div').css('width'))
+			console.log($('div').css('background-color'))
+
+			// 2. 设置样式 元素集合.css(样式名，样式值)
+			// 当单位是px的时候可以省略单位
+			$('div').css('height', '100px')
+			$('div').css('width', '300')
+			$('div').css('color','#FF0000')
+			$('div').css('background-color','purple')
+
+			// 3. 批量设置样式 元素集合.css({对象})
+			$('div').css({
+				width:260,
+				height:120,
+				opacity:0.68,
+				'color':'pink'
+			})
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>iQuery 事件绑定</title>
+
+		<style type="text/css">
+			div {
+				width: 500px;
+				height: 500px;
+				background-color: pink;
+			}
+
+			p {
+				width: 300px;
+				height: 300px;
+				background-color: deeppink;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div>事件绑定 div
+			<p>我是个P</p>
+		</div>
+		
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+		<script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.11.3/jquery.min.js"></script>
+
+		<script type="text/javascript">
+			
+			// 绑定事件
+
+			// 1. on()
+			// 1.1 直接绑定单一事件：
+			$('div').on('click', function(){ console.log('一个 on click 事件') })
+			// 1.2 委托类型，将p元素的绑定事件weituo给div进行绑定，只有p才能触发
+			$('div').on('click', 'p', function(){ console.log('一个 on click 事件，p 做选择器') })
+			// 1.3 批量绑定事件
+			$('div').on({
+				click:function (){ console.log('批量-->点击事件')},
+				mouseover:function (){ console.log('批量-->鼠标移入事件')},
+				mouseout:function (){ console.log('批量-->鼠标移出事件')}
+			})
+
+			// 2. one() 与on()绑定的事件类似，只不过one()绑定事件只能执行一次
+
+			// 3. hover() 是jQuery中特殊的处理事件；元素集合.hover(移入时触发的函数, 移出时触发的函数)
+			// 当只有一个函数时，移入移出都会调用此函数
+			$('div').hover(
+				function (){console.log('移入函数')},
+				function (){console.log('移出函数')}
+			)
+			
+		</script>
+	</body>
+</html>

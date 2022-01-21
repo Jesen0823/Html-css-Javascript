@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>iQuery 操作元素属性</title>
+
+		<style type="text/css">
+			div {
+				height: 200px;
+				background-color: skyblue;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box" myCustom="hello">操作元素属性 div</div>
+		
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+		<script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.11.3/jquery.min.js"></script>
+
+
+		<script type="text/javascript">
+			// 操作元素属性
+
+			// 1. attr() 实际应用中一般用来操作自定义属性,非自定义属性也可以； 元素.attr(要获取的属性名)
+			var cl = $('div').attr('myCustom')
+			console.log(cl)
+			console.log($('div').attr('id'))
+
+			// 2. attr()设置；元素.attr(属性名,属性值)
+			$('div').attr("add",100)
+			$('div').attr("id",'container')
+
+			// 3. removeAttr()
+			$('div').removeAttr('add')
+
+			// 4. prop()设置属性： 设置原生属性会加在元素标签中，设置自定义属性会加在元素对象中而不是在标签里
+			$('div').prop('id','test')
+			$('div').prop('custom2',200)
+			console.log($('div'))
+
+			// 5. prop()获取属性，只能获取prop()方法自己设置的属性
+			console.log('prop 获取属性：')
+			console.log($('div').prop('id'))
+			console.log($('div').prop('custom2'))
+			console.log($('div').prop('myCustom'))
+
+			// 6. removeProp() 删除属性，只能删除通过prop()方法设置的自定义属性
+			$('div').removeProp('custom2')
+			
+		</script>
+	</body>
+</html>

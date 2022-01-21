@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>iQuery 操作元素尺寸</title>
+
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			div {
+				width: 300px;
+				height: 300px;
+				padding: 20px;
+				border: 20px solid #333;
+				margin: 20px;
+				background-color: skyblue;
+				background-clip: content-box;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div>获取元素尺寸 div</div>
+		
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+		<script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.11.3/jquery.min.js"></script>
+
+
+		<script type="text/javascript">
+			// 1. width(),height()方法
+			console.log('width: '+$('div').width()) // 300
+			console.log('height: '+$('div').height()) // 300
+
+			// 2. innerWidth(), innerHeight()
+			console.log('innerwidth: '+$('div').innerWidth()) // 340
+			console.log('innerheight: '+$('div').innerHeight()) // 340
+
+			// 3. outerWidth(), outerHeight()
+			console.log('outerWidth: '+$('div').outerWidth()) // 380
+			console.log('outerHeight: '+$('div').outerHeight()) // 380
+			// 包含设置的margin 20
+			console.log('outerWidth true: '+$('div').outerWidth(true)) // 420
+			console.log('outerHeight true: '+$('div').outerHeight(true)) // 420
+			
+		</script>
+	</body>
+</html>

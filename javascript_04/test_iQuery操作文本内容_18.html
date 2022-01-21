@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>iQuery 操作文本内容</title>
+	</head>
+
+	<body>
+		<div>
+			Hello
+			<p>你</p>
+			World
+		</div>
+		<br/>
+
+		<li>
+			第二行
+		</li>
+
+		<input type="text" name="inputEdit" value="请输入用户名">
+		
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+		<script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.11.3/jquery.min.js"></script>
+
+
+		<script type="text/javascript">
+			
+			// 1. html()方法获取内容
+			console.log($('div').html())
+
+			// 2. html()方法设置内容
+			$('div').html('不速之客')
+			$('li').html('<h2>第二行 不速之客</h2>')
+
+			// 3. text()获取内容
+			var content= $('div').text()
+			console.log(content)
+			// 4. text()设置内容
+			$('div').text('text()设置的内容')
+
+			// 5. val()方法的使用
+			let c = $('input').val()
+			console.log('c = '+c)
+			$('input').val('请不要输入用户名')
+		</script>
+	</body>
+</html>

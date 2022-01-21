@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>iQuery 初使用</title>
+	</head>
+
+	<body>
+
+		<ul>
+			<li class="cA">1</li>
+			<li>2</li>
+			<li class="cB">3</li>
+			<li class="cB">4</li>
+			<li>5</li>
+			<li id='box'>6</li>
+		</ul>
+		
+		<ul id='second'>
+			<li>1</li>
+			<li>2</li>
+			<li>3
+				<i>3子标签</i>
+			</li>
+			<li>4
+				<i>4子标签
+					<p>4孙标签</p>
+				</i>
+			</li>
+			<li>5</li>
+			<span>插入的span</span>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+			<li>10</li>
+		</ul>
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+		<script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.11.3/jquery.min.js"></script>
+
+
+		<script type="text/javascript">
+			console.log($)
+			console.log(jQuery)
+
+			// id选择器
+			console.log($('#box'))
+
+			// 类名选择器
+			console.log($('.cA'))
+
+			// 标签选择器
+			console.log($('li'))
+
+			// 结构选择器
+			console.log($('li:nth-child(odd)')) // 奇数序列
+			console.log($('li:nth-child(even)')) // 偶数序列
+
+			// 帅选器
+			console.log('筛选器：')
+			console.log($('li').first())
+			console.log($('li').last())
+			console.log($('li').eq(2))
+			console.log($('span').next())
+			console.log($('span').nextAll())
+			console.log($('span').parent())
+			console.log($('.box').parents())
+			console.log($('ul').find('i'))
+
+		</script>
+	</body>
+</html>

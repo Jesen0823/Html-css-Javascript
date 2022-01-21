@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=idge">
+		<title>JS前后端交互</title>
+	</head>
+	
+	<body>
+		
+		<script type="text/javascript">
+
+			let apiUrl = 'http://baobab.kaiyanapp.com/api/v4/tabs/selected?'
+
+			// 1 创建
+			var xhr = new XMLHttpRequest()
+
+			// 3 请求完成事件
+			/*xhr.onload = function(){
+				console.log('请求完成')
+				var result = xhr.responseText
+				console.log(result)
+
+				var resultObj = JSON.parse(result)
+				console.log(resultObj)
+			}*/
+
+
+			// 2 配置
+			xhr.open("GET", "http://api.tuchong.com/feed-app", true)
+			xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			xhr.setRequestHeader("Access-Control-Allow-Origin","http://api.tuchong.com")
+			xhr.onreadystatechange = function(){
+				if (xhr.readyState == 4 ) {
+     				var result = xhr.responseText
+					console.log(result)
+
+					var resultObj = JSON.parse(result)
+					console.log(resultObj)
+				} else {
+     				// still not ready
+				}
+			}
+			// 4 发送
+			//xhr.send(null)
+
+		</script>
+	</body>
+</html>
